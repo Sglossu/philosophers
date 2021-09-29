@@ -20,15 +20,15 @@ void	errors(char *str)
 
 int main(int argc, char **argv)
 {
-	t_data	ph;
+	t_data	all;
 
-	ph.c = 0; // delete
-	valid_arguments(argc, argv, &ph);
+	all.c = 0; // delete
+	valid_arguments(argc, argv, &all);
 	// printf("ph->nbs_phils (number_of_philosophers) ---->    %d\n", ph.nbs_phils);
 	// printf("ph->t_die (time_to_die) ---->    %d\n", ph.t_die);
 	// printf("ph->t_eat (time_to_eat) ---->    %d\n", ph.t_eat);
 	// printf("ph->t_sleep (time_to_sleep) ---->    %d\n", ph.t_sleep);
 	// printf("ph->nbs_eating (number_of_times_philo_must_eat) ---->    %d\n", ph.nbs_eating);
-	thread(&ph);
+	thread(&all);
 	return (1);
 }

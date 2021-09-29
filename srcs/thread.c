@@ -12,24 +12,54 @@
 
 #include "philo.h"
 
-void	*ft_func()
+void	*death_func(void *philo_m)
 {
-	print()
+	t_thread *philo;
+	philo = philo_m;
+	int count = 0;
+
+	while (1){
+
+	}
+}
+
+void	*ft_func(void *philo_m)
+{
+	t_thread	*philo;
+	long		time;
+
+	time = time_now();
+	philo = philo_m;
+	pthread_mutex_lock(&philo->mutex[philo->left_fork]);
+	printf("%d has taken the left fork\n", philo->philo_id);
+	pthread_mutex_lock(&philo->mutex[philo->right_fork]);
+	printf("%d has taken the right fork\n", philo->philo_id);
+	printf("%d is eating\n", philo->philo_id);
+	time = time_now();
+	usleep(philo->t_eat * 1000);
+	pthread_mutex_unlock(&philo->mutex[philo->left_fork]);
+	pthread_mutex_unlock(&philo->mutex[philo->right_fork]);
+
+	printf("%d is sleeping\n", philo->philo_id);
+//	printf("1sleep: %ld\n", time_now());
+	usleep(philo->t_sleep * 1000);
+//	printf("2sleep: %ld\n", time_now());
+	// если время еще есть - он будет думать
 	return (0);
 }
 
-void	thread(t_data *ph)
+void	thread(t_data *all)
 {
-	(void)ph;
-	pthread_t	t1;
-	pthread_t	t2;
-	char		*str1 = "1_1_1_\n";
-	char		*str2 = "2_2_2_\n";
-	
-	pthread_create(&t1, NULL, ft_func, (void *)str1);
-	pthread_create(&t2, NULL, ft_func, (void *)str2);
+	int count = 0;
 
-	pthread_join(t1, NULL);
-	pthread_join(t2, NULL);
-	
+	pthread_create(&all->philo[all->nbs_phils].t, NULL, death_func,  &all->philo[all->nbs_phils]); // поток для контроля смерти
+	while (count < all->nbs_phils) {
+		pthread_create(&all->philo[count].t, NULL, ft_func,  &all->philo[count]);
+		count++;
+	}
+	count = 0;
+	while (count < all->nbs_phils) {
+		pthread_join(all->philo[count].t, NULL);
+		count++;
+	}
 }

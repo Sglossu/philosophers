@@ -31,17 +31,17 @@ static	void	valid_if_digit(char **argv)
 	}
 }
 
-void valid_arguments(int argc, char **argv, t_data *ph)
+void valid_arguments(int argc, char **argv, t_data *all)
 {
 	if (argc == 5)
 	{
 		valid_if_digit(argv);
-		init_struct_five(ph, argv);
+		init_struct_five(all, argv);
 	}
 	else if (argc == 6)
 	{
 		valid_if_digit(argv);
-		init_struct_six(ph, argv);
+		init_struct_six(all, argv);
 	}
 	else
 		errors("Wrong number argunemts!");

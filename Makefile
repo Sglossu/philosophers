@@ -6,7 +6,7 @@ RM				=	rm -f
 DIR_SRCS		=	srcs/
 
 SRCS			=	$(DIR_SRCS)philo.c					$(DIR_SRCS)valid.c					$(DIR_SRCS)ft_atoi.c \
-					$(DIR_SRCS)init_struct.c			$(DIR_SRCS)thread.c
+					$(DIR_SRCS)init_struct.c			$(DIR_SRCS)thread.c					$(DIR_SRCS)time.c
 
 OBJS			=	$(SRCS:.c=.o)
 
