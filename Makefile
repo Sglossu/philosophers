@@ -1,12 +1,13 @@
 NAME			=	philo
 DIR_HEAD		=	includes
 CC				=	gcc
-CFLAGS			=	-Wall -Werror -Wextra
+CFLAGS			=	#-Wall -Werror -Wextra
 RM				=	rm -f
 DIR_SRCS		=	srcs/
 
 SRCS			=	$(DIR_SRCS)philo.c					$(DIR_SRCS)valid.c					$(DIR_SRCS)ft_atoi.c \
-					$(DIR_SRCS)init_struct.c			$(DIR_SRCS)thread.c					$(DIR_SRCS)time.c
+					$(DIR_SRCS)init_struct.c			$(DIR_SRCS)thread.c					$(DIR_SRCS)utils.c \
+					$(DIR_SRCS)actions.c
 
 OBJS			=	$(SRCS:.c=.o)
 

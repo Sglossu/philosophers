@@ -1,0 +1,12 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/sglossu/Desktop/ppppl/srcs/thread.c
+philo.h
+/Users/sglossu/Desktop/ppppl/srcs/philo.h
+

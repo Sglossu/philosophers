@@ -6,7 +6,7 @@
 /*   By: sglossu <sglossu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/09 17:17:50 by sglossu           #+#    #+#             */
-/*   Updated: 2021/09/09 20:20:01 by sglossu          ###   ########.fr       */
+/*   Updated: 2021/10/08 23:15:58 by sglossu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,15 +33,10 @@ static	void	valid_if_digit(char **argv)
 
 void valid_arguments(int argc, char **argv, t_data *all)
 {
-	if (argc == 5)
+	if (argc == 5 || argc == 6)
 	{
 		valid_if_digit(argv);
-		init_struct_five(all, argv);
-	}
-	else if (argc == 6)
-	{
-		valid_if_digit(argv);
-		init_struct_six(all, argv);
+		init_struct(all, argv, argc);
 	}
 	else
 		errors("Wrong number argunemts!");
