@@ -12,7 +12,7 @@
 
 #include "philo.h"
 
-static	void	valid_if_digit(char **argv)
+static	int	valid_if_digit(char **argv)
 {
 	int i;
 	int j;
@@ -24,20 +24,54 @@ static	void	valid_if_digit(char **argv)
 		while (argv[i][j])
 		{
 			if (argv[i][j] < 48 || argv[i][j] > 57)
-				errors("Invalid arguments, try to used only numbers!");
+			{
+				ft_putstr("Invalid arguments, try to used only numbers!");
+				return (0);
+			}
 			j++;
 		}
 		i++;
 	}
+	return (1);
 }
 
-void valid_arguments(int argc, char **argv, t_data *all)
+static	int	valid_incorrect_arguments(t_data *all)
+{
+	if (all->nbs_phils <= 0 || all->t_die <= 0 || all->t_eat <= 0 || all->t_sleep <= 0)
+	{
+		ft_putstr("Incorrect arguments");
+		return (0);
+	}
+	return (1);
+}
+
+static	int	valid_nbs_eating(t_data *all, int argc)
+{
+	if (all->nbs_eating <= 0 && argc == 6)
+	{
+		ft_putstr("Incorrect arguments");
+		return (0);
+	}
+	return (1);
+}
+
+int valid_arguments(int argc, char **argv, t_data *all)
 {
 	if (argc == 5 || argc == 6)
 	{
-		valid_if_digit(argv);
-		init_struct(all, argv, argc);
+		if (!valid_if_digit(argv))
+			return (0);
+		if (!init_struct(all, argv, argc))
+			return (0);
+		if (!valid_incorrect_arguments(all))
+			return (0);
+		if (!valid_nbs_eating(all, argc))
+			return (0);
 	}
 	else
-		errors("Wrong number argunemts!");
+	{
+		ft_putstr("Wrong number arguments!");
+		return (0);
+	}
+	return (1);
 }

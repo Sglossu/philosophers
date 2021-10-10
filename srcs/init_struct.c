@@ -43,7 +43,9 @@ static	void	init_dop(t_data *all)
 	}
 }
 
-void	init_struct(t_data *all, char **argv, int argc)
+
+
+int	init_struct(t_data *all, char **argv, int argc)
 {
 
 	all->nbs_phils = ft_atoi(argv[1]);
@@ -54,11 +56,18 @@ void	init_struct(t_data *all, char **argv, int argc)
 		all->nbs_eating = 0;
 	else
 		all->nbs_eating = ft_atoi(argv[5]);
-	all->philo = (t_thread *)malloc(sizeof(t_thread) * all->nbs_phils);
+	all->philo = (t_thread *)malloc(sizeof(t_thread) * (all->nbs_phils + 1));
 	if (all->philo == NULL)
-		errors("No memory allocated");
+	{
+		ft_putstr("No memory allocated");
+		return (0);
+	}
 	all->table = (pthread_mutex_t *)malloc(sizeof(pthread_mutex_t) * (all->nbs_phils + 1));
 	if (all->table == NULL)
-		errors("No memory allocated");
+	{
+		ft_putstr("No memory allocated");
+		return (0);
+	}
 	init_dop(all);
+	return (1);
 }

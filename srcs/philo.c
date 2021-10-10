@@ -25,14 +25,21 @@ int main(int argc, char **argv)
 
 	all = malloc(sizeof(t_data));
 	if (all == NULL)
-		errors("No memory allocated");
-	all->c = 0; // delete
-	valid_arguments(argc, argv, all);
-//	all->time_start_program = time_now();
-//	while (count < all->nbs_phils) {
-//		all->philo[count].time_start_program = all->time_start_program;
-//		count++;
-//	}
-	thread(all);
+	{
+		ft_putstr("No memory allocated");
+		return (-1);
+	}
+	all->nbs_phils = 0;
+	if(!valid_arguments(argc, argv, all))
+	{
+//		free;
+		return (-1);
+	}
+	if (!thread(all))
+	{
+//		free;
+		return (-1);
+	}
+//	free;
 	return (1);
 }
