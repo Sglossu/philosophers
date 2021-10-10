@@ -67,6 +67,6 @@ void	ft_putstr(char *s);
 void	*death_func(void *philo_m);
 void	my_usleep(long time);
 
-//void	message(long time, int philo_id, char *str);
+void	message(long time, int philo_id, char *str, t_thread *philo);
 
 #endif 

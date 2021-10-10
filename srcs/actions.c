@@ -15,9 +15,15 @@
 void	eating(t_thread *philo)
 {
 	pthread_mutex_lock(&philo->mutex[philo->left_fork]);
+
 	pthread_mutex_lock(&philo->mutex[philo->nbs_phils]);
 	printf("%ld %d has taken a left fork %d\n", time_now() - philo->time_start_thread, philo->philo_id, philo->left_fork);
+//	message(time_now() - philo->time_start_thread, philo->philo_id, "has taken a left fork", philo);
 	pthread_mutex_unlock(&philo->mutex[philo->nbs_phils]);
+
+//	if (time_now() - philo->time_start_thread > (long)philo->t_die)
+//		pthread_mutex_lock(&philo->mutex[philo->left_fork]);
+
 	if (philo->nbs_phils == 1)
 	{
 		pthread_mutex_lock(&philo->mutex[philo->nbs_phils]);
@@ -25,14 +31,19 @@ void	eating(t_thread *philo)
 		pthread_mutex_unlock(&philo->mutex[philo->nbs_phils]);
 		exit (-1);
 	}
+
 	pthread_mutex_lock(&philo->mutex[philo->right_fork]);
 	printf("%ld %d has taken a right fork %d\n", time_now() - philo->time_start_thread, philo->philo_id, philo->right_fork);
 	pthread_mutex_unlock(&philo->mutex[philo->nbs_phils]);
+
 	philo->time_start_eat = time_now();
+
 	pthread_mutex_lock(&philo->mutex[philo->nbs_phils]);
 	printf("%ld %d is eating\n", time_now()- philo->time_start_thread, philo->philo_id);
 	pthread_mutex_unlock(&philo->mutex[philo->nbs_phils]);
+
 	my_usleep(philo->t_eat);
+
 	pthread_mutex_unlock(&philo->mutex[philo->left_fork]);
 	pthread_mutex_unlock(&philo->mutex[philo->right_fork]);
 	philo->count_eating++;

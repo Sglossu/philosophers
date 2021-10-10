@@ -77,7 +77,7 @@ void	my_usleep(long time)
 //		write(1, &x, 1);
 //	}
 //}
-//
+
 void	ft_putstr(char *s)
 {
 	int	i;
@@ -93,11 +93,9 @@ void	ft_putstr(char *s)
 	write(1, "\n", 1);
 }
 
-//void	message(long time, int philo_id, char *str)
-//{
-////	ft_putnbr_long(time);
-////	write(1, " ", 1);
-////	ft_putnbr(philo_id);
-////	write(1, " ", 1);
-//	ft_putstr(str);
-//}
+void	message(long time, int philo_id, char *str, t_thread *philo)
+{
+	pthread_mutex_lock(&philo->mutex[philo->nbs_phils]);
+	printf("%ld %d %s\n", time, philo_id, str);
+	pthread_mutex_unlock(&philo->mutex[philo->nbs_phils]);
+}

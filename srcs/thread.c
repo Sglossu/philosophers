@@ -41,10 +41,10 @@ void	*death_func(void *philo_m)
 		{
 
 			pthread_mutex_lock(&philo[count]->mutex[(*philo)->nbs_eating]);
-			printf("%ld %d died\n", life_time, (*philo)[count].philo_id);
-			pthread_mutex_unlock(&philo[count]->mutex[(*philo)->nbs_eating]);
+			printf("%ld %d died\n", time_now() -(*philo)[count].time_start_thread, (*philo)[count].philo_id);
+//			pthread_mutex_unlock(&philo[count]->mutex[(*philo)->nbs_eating]);
 
-			pthread_mutex_lock(&philo[count]->mutex[(*philo)->left_fork]);
+//			pthread_mutex_lock(&philo[count]->mutex[(*philo)->left_fork]);
 //			exit (1);
 			return (NULL);
 		}
@@ -66,9 +66,8 @@ void	*ft_func(void *philo_m)
 		sleeping(philo);
 		thinking(philo);
 		life_time = time_now() - philo->time_start_eat;
-		pthread_mutex_lock(&philo->mutex[philo->nbs_phils]);
-		printf("%d life time %ld\n", philo->philo_id, life_time);
-		pthread_mutex_lock(&philo->mutex[philo->nbs_phils]);
+//		pthread_mutex_lock(&philo->mutex[philo->nbs_phils]);
+//		pthread_mutex_lock(&philo->mutex[philo->nbs_phils]);
 		if (life_time > (long)philo->t_die)
 		{
 
@@ -100,7 +99,7 @@ int	thread(t_data *all)
 		usleep(50);
 	}
 
-	pthread_create(&all->philo[count].t, NULL, death_func,  &all->philo);
+	pthread_create(&all->philo[all->nbs_phils].t, NULL, death_func,  &all->philo);
 //	count = 0;
 //	while (count < all->nbs_phils) {
 //		pthread_join(all->philo[count].t, NULL);
