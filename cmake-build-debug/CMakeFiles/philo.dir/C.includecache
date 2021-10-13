@@ -6,23 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/Users/sglossu/Desktop/ppppl/srcs/actions.c
-philo.h
-/Users/sglossu/Desktop/ppppl/srcs/philo.h
-
-/Users/sglossu/Desktop/ppppl/srcs/init_struct.c
-philo.h
-/Users/sglossu/Desktop/ppppl/srcs/philo.h
-
-/Users/sglossu/Desktop/ppppl/srcs/philo.c
-philo.h
-/Users/sglossu/Desktop/ppppl/srcs/philo.h
-
 /Users/sglossu/Desktop/ppppl/srcs/thread.c
-philo.h
-/Users/sglossu/Desktop/ppppl/srcs/philo.h
-
-/Users/sglossu/Desktop/ppppl/srcs/valid.c
 philo.h
 /Users/sglossu/Desktop/ppppl/srcs/philo.h
 

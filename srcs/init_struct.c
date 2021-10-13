@@ -17,7 +17,7 @@ static	void	init_dop(t_data *all)
 	int count;
 
 	count = 0;
-	while (count < all->nbs_phils + 1)
+	while (count <= all->nbs_phils)
 	{
 		pthread_mutex_init(&all->table[count], NULL);
 		count++;

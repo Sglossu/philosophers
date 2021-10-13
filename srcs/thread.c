@@ -4,7 +4,23 @@
 /*   thread.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sglossu <sglossu@student.42.fr>            +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
+/*
+
+Search 21 School
+
+
+:wine_glass:
+
+
+
+1
+
+2
+
+3
+
+
+          +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/09 20:22:58 by sglossu           #+#    #+#             */
 /*   Updated: 2021/10/08 23:15:17 by sglossu          ###   ########.fr       */
 /*                                                                            */
@@ -35,14 +51,14 @@ void	*death_func(void *philo_m)
 		if (count_gorged_philo == (*philo)[count].nbs_phils && (*philo)[count].nbs_eating != 0)
 		{
 //			printf("наелись\n");
-			exit (1);
+			return (NULL);
 		}
 		if (life_time > (long)(*philo)[count].t_die)
 		{
 
-			pthread_mutex_lock(&philo[count]->mutex[(*philo)->nbs_eating]);
+			pthread_mutex_lock((*philo)->mutex + (**philo).nbs_phils);
 			printf("%ld %d died\n", time_now() -(*philo)[count].time_start_thread, (*philo)[count].philo_id);
-//			pthread_mutex_unlock(&philo[count]->mutex[(*philo)->nbs_eating]);
+//			pthread_mutex_unlock(&philo[count]->mutex[(*philo)->nbs_phils]);
 
 //			pthread_mutex_lock(&philo[count]->mutex[(*philo)->left_fork]);
 //			exit (1);
@@ -66,12 +82,8 @@ void	*ft_func(void *philo_m)
 		sleeping(philo);
 		thinking(philo);
 		life_time = time_now() - philo->time_start_eat;
-//		pthread_mutex_lock(&philo->mutex[philo->nbs_phils]);
-//		pthread_mutex_lock(&philo->mutex[philo->nbs_phils]);
 		if (life_time > (long)philo->t_die)
 		{
-
-			ft_putstr("pup\n");
 			return (NULL);
 		}
 	}
@@ -87,7 +99,7 @@ int	thread(t_data *all)
 		all->philo[count].time_start_thread = time_now();
 		pthread_create(&all->philo[count].t, NULL, ft_func,  &all->philo[count]);
 		count += 2;
-		usleep(50);
+		usleep(100);
 	}
 
 	count = 1;
@@ -96,7 +108,7 @@ int	thread(t_data *all)
 		all->philo[count].time_start_thread = time_now();
 		pthread_create(&all->philo[count].t, NULL, ft_func,  &all->philo[count]);
 		count += 2;
-		usleep(50);
+		usleep(100);
 	}
 
 	pthread_create(&all->philo[all->nbs_phils].t, NULL, death_func,  &all->philo);

@@ -28,7 +28,7 @@ void	eating(t_thread *philo)
 	{
 		pthread_mutex_lock(&philo->mutex[philo->nbs_phils]);
 		printf("%ld %d died\n", time_now() - philo->time_start_thread, philo->philo_id);
-		pthread_mutex_unlock(&philo->mutex[philo->nbs_phils]);
+//		pthread_mutex_unlock(&philo->mutex[philo->nbs_phils]);
 		exit (-1);
 	}
 
