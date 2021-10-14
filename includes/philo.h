@@ -38,7 +38,7 @@ typedef struct s_thread
 	int				nbs_eating;
 	int 			count_eating;
 	bool			gorged;
-	bool 			philo_die;
+	bool 			ph_die;
 }               t_thread;
 
 typedef	struct s_data

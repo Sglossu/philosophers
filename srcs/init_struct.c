@@ -33,7 +33,7 @@ static	void	init_dop(t_data *all, int count)
 		all->philo[count].nbs_eating = all->nbs_eating;
 		all->philo[count].count_eating = 0;
 		all->philo[count].gorged = false;
-		all->philo[count].philo_die = false;
+		all->philo[count].ph_die = false;
 		all->philo[count].time_start_program = all->time_start_program;
 		count++;
 	}

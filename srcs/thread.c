@@ -27,12 +27,12 @@ void	*death(void *philo_m)
 		life_time = life_of_time(philo, count);
 		count_gorged_philo = count_gorged(philo, count, count_gorged_philo);
 		if ((count_gorged_philo == (*philo)[count].nbs_phils && \
-		(*philo)[count].nbs_eating != 0) || (*philo)[count].philo_die)
+		(*philo)[count].nbs_eating != 0))
 		{
 			pthread_mutex_lock((*philo)->mutex + (**philo).nbs_phils);
 			return (NULL);
 		}
-		if (life_time > (long)(*philo)[count].t_die || (*philo)->philo_die)
+		if (life_time > (long)(*philo)[count].t_die || (*philo)[count].ph_die)
 		{
 			message("died", **philo);
 			return (NULL);

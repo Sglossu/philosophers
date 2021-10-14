@@ -17,10 +17,7 @@ void	eating(t_thread *philo)
 	pthread_mutex_lock(&philo->mutex[philo->left_fork]);
 	message("has taken a fork", *philo);
 	if (philo->nbs_phils == 1)
-	{
-		philo->philo_die = true;
-		message("died", *philo);
-	}
+		philo->ph_die = true;
 	pthread_mutex_lock(&philo->mutex[philo->right_fork]);
 	message("has taken a fork", *philo);
 	philo->time_start_eat = time_now();
