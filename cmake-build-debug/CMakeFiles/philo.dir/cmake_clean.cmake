@@ -5,6 +5,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/philo.dir/srcs/philo.c.o"
   "CMakeFiles/philo.dir/srcs/thread.c.o"
   "CMakeFiles/philo.dir/srcs/utils.c.o"
+  "CMakeFiles/philo.dir/srcs/utils_death.c.o"
+  "CMakeFiles/philo.dir/srcs/utils_write.c.o"
   "CMakeFiles/philo.dir/srcs/valid.c.o"
   "philo"
   "philo.pdb"

@@ -15,35 +15,17 @@
 void	eating(t_thread *philo)
 {
 	pthread_mutex_lock(&philo->mutex[philo->left_fork]);
-
-	pthread_mutex_lock(&philo->mutex[philo->nbs_phils]);
-	printf("%ld %d has taken a left fork %d\n", time_now() - philo->time_start_thread, philo->philo_id, philo->left_fork);
-//	message(time_now() - philo->time_start_thread, philo->philo_id, "has taken a left fork", philo);
-	pthread_mutex_unlock(&philo->mutex[philo->nbs_phils]);
-
-//	if (time_now() - philo->time_start_thread > (long)philo->t_die)
-//		pthread_mutex_lock(&philo->mutex[philo->left_fork]);
-
+	message("has taken a fork", *philo);
 	if (philo->nbs_phils == 1)
 	{
-		pthread_mutex_lock(&philo->mutex[philo->nbs_phils]);
-		printf("%ld %d died\n", time_now() - philo->time_start_thread, philo->philo_id);
-//		pthread_mutex_unlock(&philo->mutex[philo->nbs_phils]);
-		exit (-1);
+		philo->philo_die = true;
+		message("died", *philo);
 	}
-
 	pthread_mutex_lock(&philo->mutex[philo->right_fork]);
-	printf("%ld %d has taken a right fork %d\n", time_now() - philo->time_start_thread, philo->philo_id, philo->right_fork);
-	pthread_mutex_unlock(&philo->mutex[philo->nbs_phils]);
-
+	message("has taken a fork", *philo);
 	philo->time_start_eat = time_now();
-
-	pthread_mutex_lock(&philo->mutex[philo->nbs_phils]);
-	printf("%ld %d is eating\n", time_now()- philo->time_start_thread, philo->philo_id);
-	pthread_mutex_unlock(&philo->mutex[philo->nbs_phils]);
-
+	message("is eating", *philo);
 	my_usleep(philo->t_eat);
-
 	pthread_mutex_unlock(&philo->mutex[philo->left_fork]);
 	pthread_mutex_unlock(&philo->mutex[philo->right_fork]);
 	philo->count_eating++;
@@ -53,16 +35,11 @@ void	eating(t_thread *philo)
 
 void	sleeping(t_thread *philo)
 {
-	pthread_mutex_lock(&philo->mutex[philo->nbs_phils]);
-	printf("%ld %d is sleeping\n", time_now() - philo->time_start_thread, philo->philo_id);
-	pthread_mutex_unlock(&philo->mutex[philo->nbs_phils]);
-
+	message("is sleeping", *philo);
 	my_usleep(philo->t_sleep);
 }
 
 void	thinking(t_thread *philo)
 {
-	pthread_mutex_lock(&philo->mutex[philo->nbs_phils]);
-	printf("%ld %d is thinking\n", time_now() - philo->time_start_thread, philo->philo_id);
-	pthread_mutex_unlock(&philo->mutex[philo->nbs_phils]);
+	message("is thinking", *philo);
 }

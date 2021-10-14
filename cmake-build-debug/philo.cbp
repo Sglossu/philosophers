@@ -96,6 +96,12 @@
 		<Unit filename="/Users/sglossu/Desktop/ppppl/srcs/utils.c">
 			<Option target="philo"/>
 		</Unit>
+		<Unit filename="/Users/sglossu/Desktop/ppppl/srcs/utils_death.c">
+			<Option target="philo"/>
+		</Unit>
+		<Unit filename="/Users/sglossu/Desktop/ppppl/srcs/utils_write.c">
+			<Option target="philo"/>
+		</Unit>
 		<Unit filename="/Users/sglossu/Desktop/ppppl/srcs/valid.c">
 			<Option target="philo"/>
 		</Unit>

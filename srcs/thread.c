@@ -4,23 +4,7 @@
 /*   thread.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sglossu <sglossu@student.42.fr>            +#+  +:+       +#+        */
-/*
-
-Search 21 School
-
-
-:wine_glass:
-
-
-
-1
-
-2
-
-3
-
-
-          +#+#+#+#+#+   +#+           */
+/*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/09 20:22:58 by sglossu           #+#    #+#             */
 /*   Updated: 2021/10/08 23:15:17 by sglossu          ###   ########.fr       */
 /*                                                                            */
@@ -28,95 +12,76 @@ Search 21 School
 
 #include "philo.h"
 
-void	*death_func(void *philo_m)
+void	*death(void *philo_m)
 {
-	t_thread **philo;
-	philo = philo_m;
-	int count = 0;
-	long 	life_time = 0;
-	int 	count_gorged_philo = 0;
+	t_thread	**philo;
+	int			count;
+	long		life_time;
+	int			count_gorged_philo;
 
+	count = 0;
+	count_gorged_philo = 0;
+	philo = philo_m;
 	while (1)
 	{
-		if ((*philo)[count].time_start_eat)
-			life_time = time_now() - (*philo)[count].time_start_eat; // сколько живет филосов сейчас
-		else
-			life_time = time_now() - (*philo)[count].time_start_thread;
-
-		if ((*philo)[count].gorged)
+		life_time = life_of_time(philo, count);
+		count_gorged_philo = count_gorged(philo, count, count_gorged_philo);
+		if ((count_gorged_philo == (*philo)[count].nbs_phils && \
+		(*philo)[count].nbs_eating != 0) || (*philo)[count].philo_die)
 		{
-			(*philo)[count].gorged = false;
-			count_gorged_philo++;
-		}
-		if (count_gorged_philo == (*philo)[count].nbs_phils && (*philo)[count].nbs_eating != 0)
-		{
-//			printf("наелись\n");
-			return (NULL);
-		}
-		if (life_time > (long)(*philo)[count].t_die)
-		{
-
 			pthread_mutex_lock((*philo)->mutex + (**philo).nbs_phils);
-			printf("%ld %d died\n", time_now() -(*philo)[count].time_start_thread, (*philo)[count].philo_id);
-//			pthread_mutex_unlock(&philo[count]->mutex[(*philo)->nbs_phils]);
-
-//			pthread_mutex_lock(&philo[count]->mutex[(*philo)->left_fork]);
-//			exit (1);
 			return (NULL);
 		}
-		count++;
-		if (count == (*philo)[0].nbs_phils)
-			count = 0;
+		if (life_time > (long)(*philo)[count].t_die || (*philo)->philo_die)
+		{
+			message("died", **philo);
+			return (NULL);
+		}
+		count = countings(count, philo);
 	}
 }
 
-void	*ft_func(void *philo_m)
+void	*func(void *philo_m)
 {
 	t_thread	*philo;
-	long 		life_time;
+	long		life_time;
 
 	philo = philo_m;
-	while(1)
+	while (1)
 	{
 		eating(philo);
 		sleeping(philo);
 		thinking(philo);
 		life_time = time_now() - philo->time_start_eat;
 		if (life_time > (long)philo->t_die)
-		{
 			return (NULL);
-		}
 	}
 }
 
 int	thread(t_data *all)
 {
-	int count;
+	int	count;
 
 	count = 0;
+	all->time_start_program = time_now();
 	while (count < all->nbs_phils)
 	{
 		all->philo[count].time_start_thread = time_now();
-		pthread_create(&all->philo[count].t, NULL, ft_func,  &all->philo[count]);
+		all->philo[count].time_start_program = all->time_start_program;
+		pthread_create(&all->philo[count].t, NULL, func, &all->philo[count]);
 		count += 2;
-		usleep(100);
+		usleep(50);
 	}
-
 	count = 1;
 	while (count < all->nbs_phils)
 	{
 		all->philo[count].time_start_thread = time_now();
-		pthread_create(&all->philo[count].t, NULL, ft_func,  &all->philo[count]);
+		all->philo[count].time_start_program = all->time_start_program;
+		pthread_create(&all->philo[count].t, NULL, func, &all->philo[count]);
 		count += 2;
-		usleep(100);
+		usleep(50);
 	}
-
-	pthread_create(&all->philo[all->nbs_phils].t, NULL, death_func,  &all->philo);
-//	count = 0;
-//	while (count < all->nbs_phils) {
-//		pthread_join(all->philo[count].t, NULL);
-//		count++;
-//	}
+	pthread_create(&all->philo[all->nbs_phils].t, NULL, death, &all->philo);
 	pthread_join(all->philo[all->nbs_phils].t, NULL);
 	return (1);
 }

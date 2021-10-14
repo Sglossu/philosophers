@@ -1,4 +1,4 @@
- /* ************************************************************************** */
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   init_struct.c                                      :+:      :+:    :+:   */
@@ -12,16 +12,10 @@
 
 #include "philo.h"
 
-static	void	init_dop(t_data *all)
+static	void	init_dop(t_data *all, int count)
 {
-	int count;
-
-	count = 0;
-	while (count <= all->nbs_phils)
-	{
+	while (count++ <= all->nbs_phils)
 		pthread_mutex_init(&all->table[count], NULL);
-		count++;
-	}
 	count = 0;
 	while (count < all->nbs_phils)
 	{
@@ -39,19 +33,19 @@ static	void	init_dop(t_data *all)
 		all->philo[count].nbs_eating = all->nbs_eating;
 		all->philo[count].count_eating = 0;
 		all->philo[count].gorged = false;
+		all->philo[count].philo_die = false;
+		all->philo[count].time_start_program = all->time_start_program;
 		count++;
 	}
 }
 
-
-
 int	init_struct(t_data *all, char **argv, int argc)
 {
-
 	all->nbs_phils = ft_atoi(argv[1]);
 	all->t_die = ft_atoi(argv[2]);
 	all->t_eat = ft_atoi(argv[3]);
 	all->t_sleep = ft_atoi(argv[4]);
+	all->time_start_program = 0;
 	if (argc == 5)
 		all->nbs_eating = 0;
 	else
@@ -62,12 +56,13 @@ int	init_struct(t_data *all, char **argv, int argc)
 		ft_putstr("No memory allocated");
 		return (0);
 	}
-	all->table = (pthread_mutex_t *)malloc(sizeof(pthread_mutex_t) * (all->nbs_phils + 1));
+	all->table = (pthread_mutex_t *)malloc(\
+	sizeof(pthread_mutex_t) * (all->nbs_phils + 1));
 	if (all->table == NULL)
 	{
 		ft_putstr("No memory allocated");
 		return (0);
 	}
-	init_dop(all);
+	init_dop(all, -1);
 	return (1);
 }

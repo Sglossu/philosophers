@@ -273,6 +273,54 @@ srcs/utils.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/philo.dir/build.make CMakeFiles/philo.dir/srcs/utils.c.s
 .PHONY : srcs/utils.c.s
 
+srcs/utils_death.o: srcs/utils_death.c.o
+.PHONY : srcs/utils_death.o
+
+# target to build an object file
+srcs/utils_death.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/philo.dir/build.make CMakeFiles/philo.dir/srcs/utils_death.c.o
+.PHONY : srcs/utils_death.c.o
+
+srcs/utils_death.i: srcs/utils_death.c.i
+.PHONY : srcs/utils_death.i
+
+# target to preprocess a source file
+srcs/utils_death.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/philo.dir/build.make CMakeFiles/philo.dir/srcs/utils_death.c.i
+.PHONY : srcs/utils_death.c.i
+
+srcs/utils_death.s: srcs/utils_death.c.s
+.PHONY : srcs/utils_death.s
+
+# target to generate assembly for a file
+srcs/utils_death.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/philo.dir/build.make CMakeFiles/philo.dir/srcs/utils_death.c.s
+.PHONY : srcs/utils_death.c.s
+
+srcs/utils_write.o: srcs/utils_write.c.o
+.PHONY : srcs/utils_write.o
+
+# target to build an object file
+srcs/utils_write.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/philo.dir/build.make CMakeFiles/philo.dir/srcs/utils_write.c.o
+.PHONY : srcs/utils_write.c.o
+
+srcs/utils_write.i: srcs/utils_write.c.i
+.PHONY : srcs/utils_write.i
+
+# target to preprocess a source file
+srcs/utils_write.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/philo.dir/build.make CMakeFiles/philo.dir/srcs/utils_write.c.i
+.PHONY : srcs/utils_write.c.i
+
+srcs/utils_write.s: srcs/utils_write.c.s
+.PHONY : srcs/utils_write.s
+
+# target to generate assembly for a file
+srcs/utils_write.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/philo.dir/build.make CMakeFiles/philo.dir/srcs/utils_write.c.s
+.PHONY : srcs/utils_write.c.s
+
 srcs/valid.o: srcs/valid.c.o
 .PHONY : srcs/valid.o
 
@@ -324,6 +372,12 @@ help:
 	@echo "... srcs/utils.o"
 	@echo "... srcs/utils.i"
 	@echo "... srcs/utils.s"
+	@echo "... srcs/utils_death.o"
+	@echo "... srcs/utils_death.i"
+	@echo "... srcs/utils_death.s"
+	@echo "... srcs/utils_write.o"
+	@echo "... srcs/utils_write.i"
+	@echo "... srcs/utils_write.s"
 	@echo "... srcs/valid.o"
 	@echo "... srcs/valid.i"
 	@echo "... srcs/valid.s"

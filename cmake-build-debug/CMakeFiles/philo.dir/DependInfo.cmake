@@ -14,6 +14,8 @@ set(CMAKE_DEPENDS_CHECK_C
   "/Users/sglossu/Desktop/ppppl/srcs/philo.c" "/Users/sglossu/Desktop/ppppl/cmake-build-debug/CMakeFiles/philo.dir/srcs/philo.c.o"
   "/Users/sglossu/Desktop/ppppl/srcs/thread.c" "/Users/sglossu/Desktop/ppppl/cmake-build-debug/CMakeFiles/philo.dir/srcs/thread.c.o"
   "/Users/sglossu/Desktop/ppppl/srcs/utils.c" "/Users/sglossu/Desktop/ppppl/cmake-build-debug/CMakeFiles/philo.dir/srcs/utils.c.o"
+  "/Users/sglossu/Desktop/ppppl/srcs/utils_death.c" "/Users/sglossu/Desktop/ppppl/cmake-build-debug/CMakeFiles/philo.dir/srcs/utils_death.c.o"
+  "/Users/sglossu/Desktop/ppppl/srcs/utils_write.c" "/Users/sglossu/Desktop/ppppl/cmake-build-debug/CMakeFiles/philo.dir/srcs/utils_write.c.o"
   "/Users/sglossu/Desktop/ppppl/srcs/valid.c" "/Users/sglossu/Desktop/ppppl/cmake-build-debug/CMakeFiles/philo.dir/srcs/valid.c.o"
   )
 set(CMAKE_C_COMPILER_ID "AppleClang")

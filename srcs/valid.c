@@ -14,10 +14,10 @@
 
 static	int	valid_if_digit(char **argv)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
-	i = 1; // потому что 0 - это имя программы
+	i = 1;
 	while (argv[i])
 	{
 		j = 0;
@@ -37,7 +37,8 @@ static	int	valid_if_digit(char **argv)
 
 static	int	valid_incorrect_arguments(t_data *all)
 {
-	if (all->nbs_phils <= 0 || all->t_die <= 0 || all->t_eat <= 0 || all->t_sleep <= 0)
+	if (all->nbs_phils <= 0 || all->t_die <= 0 || \
+	all->t_eat <= 0 || all->t_sleep <= 0)
 	{
 		ft_putstr("Incorrect arguments");
 		return (0);
@@ -55,7 +56,7 @@ static	int	valid_nbs_eating(t_data *all, int argc)
 	return (1);
 }
 
-int valid_arguments(int argc, char **argv, t_data *all)
+int	valid_arguments(int argc, char **argv, t_data *all)
 {
 	if (argc == 5 || argc == 6)
 	{

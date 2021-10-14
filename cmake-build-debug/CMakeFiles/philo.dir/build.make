@@ -144,9 +144,35 @@ CMakeFiles/philo.dir/srcs/utils.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/philo.dir/srcs/utils.c.s"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/sglossu/Desktop/ppppl/srcs/utils.c -o CMakeFiles/philo.dir/srcs/utils.c.s
 
+CMakeFiles/philo.dir/srcs/utils_death.c.o: CMakeFiles/philo.dir/flags.make
+CMakeFiles/philo.dir/srcs/utils_death.c.o: ../srcs/utils_death.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/sglossu/Desktop/ppppl/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/philo.dir/srcs/utils_death.c.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/philo.dir/srcs/utils_death.c.o -c /Users/sglossu/Desktop/ppppl/srcs/utils_death.c
+
+CMakeFiles/philo.dir/srcs/utils_death.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/philo.dir/srcs/utils_death.c.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/sglossu/Desktop/ppppl/srcs/utils_death.c > CMakeFiles/philo.dir/srcs/utils_death.c.i
+
+CMakeFiles/philo.dir/srcs/utils_death.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/philo.dir/srcs/utils_death.c.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/sglossu/Desktop/ppppl/srcs/utils_death.c -o CMakeFiles/philo.dir/srcs/utils_death.c.s
+
+CMakeFiles/philo.dir/srcs/utils_write.c.o: CMakeFiles/philo.dir/flags.make
+CMakeFiles/philo.dir/srcs/utils_write.c.o: ../srcs/utils_write.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/sglossu/Desktop/ppppl/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/philo.dir/srcs/utils_write.c.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/philo.dir/srcs/utils_write.c.o -c /Users/sglossu/Desktop/ppppl/srcs/utils_write.c
+
+CMakeFiles/philo.dir/srcs/utils_write.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/philo.dir/srcs/utils_write.c.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/sglossu/Desktop/ppppl/srcs/utils_write.c > CMakeFiles/philo.dir/srcs/utils_write.c.i
+
+CMakeFiles/philo.dir/srcs/utils_write.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/philo.dir/srcs/utils_write.c.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/sglossu/Desktop/ppppl/srcs/utils_write.c -o CMakeFiles/philo.dir/srcs/utils_write.c.s
+
 CMakeFiles/philo.dir/srcs/valid.c.o: CMakeFiles/philo.dir/flags.make
 CMakeFiles/philo.dir/srcs/valid.c.o: ../srcs/valid.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/sglossu/Desktop/ppppl/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/philo.dir/srcs/valid.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/sglossu/Desktop/ppppl/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object CMakeFiles/philo.dir/srcs/valid.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/philo.dir/srcs/valid.c.o -c /Users/sglossu/Desktop/ppppl/srcs/valid.c
 
 CMakeFiles/philo.dir/srcs/valid.c.i: cmake_force
@@ -165,6 +191,8 @@ philo_OBJECTS = \
 "CMakeFiles/philo.dir/srcs/philo.c.o" \
 "CMakeFiles/philo.dir/srcs/thread.c.o" \
 "CMakeFiles/philo.dir/srcs/utils.c.o" \
+"CMakeFiles/philo.dir/srcs/utils_death.c.o" \
+"CMakeFiles/philo.dir/srcs/utils_write.c.o" \
 "CMakeFiles/philo.dir/srcs/valid.c.o"
 
 # External object files for target philo
@@ -176,10 +204,12 @@ philo: CMakeFiles/philo.dir/srcs/init_struct.c.o
 philo: CMakeFiles/philo.dir/srcs/philo.c.o
 philo: CMakeFiles/philo.dir/srcs/thread.c.o
 philo: CMakeFiles/philo.dir/srcs/utils.c.o
+philo: CMakeFiles/philo.dir/srcs/utils_death.c.o
+philo: CMakeFiles/philo.dir/srcs/utils_write.c.o
 philo: CMakeFiles/philo.dir/srcs/valid.c.o
 philo: CMakeFiles/philo.dir/build.make
 philo: CMakeFiles/philo.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/sglossu/Desktop/ppppl/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking C executable philo"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/sglossu/Desktop/ppppl/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking C executable philo"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/philo.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

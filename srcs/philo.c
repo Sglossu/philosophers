@@ -12,16 +12,33 @@
 
 #include "philo.h"
 
-void	errors(char *str)
+int	ft_free(t_data *all)
 {
-	printf("%s\n", str);
-	exit (-1);
+	int	count;
+
+	count = 0;
+	while (count < all->nbs_phils + 1)
+	{
+		if (pthread_mutex_destroy(all->table + count))
+			return (-1);
+		count++;
+	}
+	count = 0;
+	while (count < all->nbs_phils + 1)
+	{
+		if (pthread_detach(all->philo[count].t))
+			return (-1);
+		count++;
+	}
+	free(all->philo);
+	free(all->table);
+	free(all);
+	return (1);
 }
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	t_data	*all;
-	int		count = 0;
 
 	all = malloc(sizeof(t_data));
 	if (all == NULL)
@@ -30,16 +47,16 @@ int main(int argc, char **argv)
 		return (-1);
 	}
 	all->nbs_phils = 0;
-	if(!valid_arguments(argc, argv, all))
+	if (!valid_arguments(argc, argv, all))
 	{
-//		free;
+		ft_free(all);
 		return (-1);
 	}
 	if (!thread(all))
 	{
-//		free;
+		ft_free(all);
 		return (-1);
 	}
-//	free;
+	ft_free(all);
 	return (1);
 }
