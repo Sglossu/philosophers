@@ -32,7 +32,7 @@ typedef struct s_thread
     int				t_eat;
     int				t_sleep;
     long 			time_start_eat;
-	sem_t			forks;
+	sem_t			*forks;
 	sem_t			print;
 	long 			time_start_thread;
 	long 			time_start_program;
@@ -65,7 +65,7 @@ void	thinking(t_thread *philo);
 void	ft_putstr(char *s);
 void	*death_func(void *philo_m);
 void	my_usleep(long time);
-void	message(char *str, t_thread philo);
+void	message(char *str, t_thread *philo);
 int 	countings(int count, t_thread **philo);
 int 	count_gorged(t_thread **philo, int count, int count_gorged_philo);
 long	life_of_time(t_thread **philo, int count);

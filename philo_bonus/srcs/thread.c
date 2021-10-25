@@ -29,13 +29,15 @@ void	*death(void *philo_m)
 		if ((count_gorged_philo == (*philo)[count].nbs_phils && \
 		(*philo)[count].nbs_eating != 0))
 		{
-			pthread_mutex_lock((*philo)->mutex + (**philo).nbs_phils);
-			return (NULL);
+//			pthread_mutex_lock((*philo)->mutex + (**philo).nbs_phils);
+//			return (NULL);
+			exit (1);
 		}
 		if (life_time > (long)(*philo)[count].t_die || (*philo)[count].ph_die)
 		{
-			message("died", **philo);
-			return (NULL);
+			message("died", *philo);
+//			return (NULL);
+			exit (1);
 		}
 		count = countings(count, philo);
 	}

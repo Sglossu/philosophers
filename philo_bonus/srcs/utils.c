@@ -46,17 +46,17 @@ int	ft_strcmp(const char *str1, const char *str2)
 	return (0);
 }
 
-void	message(char *str, t_thread philo)
+void	message(char *str, t_thread *philo)
 {
 	long	time;
 
-	pthread_mutex_lock(&philo.mutex[philo.nbs_phils]);
-	time = time_now() - philo.time_start_program;
+	sem_wait(philo->print);
+	time = time_now() - philo->time_start_program;
 	ft_putnbr_long(time);
 	ft_putchar(' ');
-	ft_putnbr_long(philo.philo_id);
+	ft_putnbr_long(philo->philo_id);
 	ft_putchar(' ');
 	ft_putstr(str);
 	if (ft_strcmp(str, "died"))
-		pthread_mutex_unlock(&philo.mutex[philo.nbs_phils]);
+		sem_post(philo->print);
 }

@@ -12,29 +12,29 @@
 
 #include "philo.h"
 
-int	ft_free(t_data *all)
-{
-	int	count;
-
-	count = 0;
-	while (count < all->nbs_phils + 1)
-	{
-		if (pthread_mutex_destroy(all->table + count))
-			return (-1);
-		count++;
-	}
-	count = 0;
-	while (count < all->nbs_phils + 1)
-	{
-		if (pthread_detach(all->philo[count].t))
-			return (-1);
-		count++;
-	}
-	free(all->philo);
-	free(all->table);
-	free(all);
-	return (1);
-}
+//int	ft_free(t_data *all)
+//{
+//	int	count;
+//
+//	count = 0;
+//	while (count < all->nbs_phils + 1)
+//	{
+//		if (pthread_mutex_destroy(all->table + count))
+//			return (-1);
+//		count++;
+//	}
+//	count = 0;
+//	while (count < all->nbs_phils + 1)
+//	{
+//		if (pthread_detach(all->philo[count].t))
+//			return (-1);
+//		count++;
+//	}
+//	free(all->philo);
+//	free(all->table);
+//	free(all);
+//	return (1);
+//}
 
 int	main(int argc, char **argv)
 {
@@ -49,14 +49,14 @@ int	main(int argc, char **argv)
 	all->nbs_phils = 0;
 	if (!valid_arguments(argc, argv, all))
 	{
-		ft_free(all);
+//		ft_free(all);
 		return (-1);
 	}
 	if (!thread(all))
 	{
-		ft_free(all);
+//		ft_free(all);
 		return (-1);
 	}
-	ft_free(all);
+//	ft_free(all);
 	return (1);
 }

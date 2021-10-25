@@ -8,15 +8,15 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/Users/sglossu/Desktop/ppppl/philo_bonus/srcs/actions.c" "/Users/sglossu/Desktop/ppppl/philo_bonus/cmake-build-debug/CMakeFiles/philo.dir/srcs/actions.c.o"
-  "/Users/sglossu/Desktop/ppppl/philo_bonus/srcs/ft_atoi.c" "/Users/sglossu/Desktop/ppppl/philo_bonus/cmake-build-debug/CMakeFiles/philo.dir/srcs/ft_atoi.c.o"
-  "/Users/sglossu/Desktop/ppppl/philo_bonus/srcs/init_struct.c" "/Users/sglossu/Desktop/ppppl/philo_bonus/cmake-build-debug/CMakeFiles/philo.dir/srcs/init_struct.c.o"
-  "/Users/sglossu/Desktop/ppppl/philo_bonus/srcs/philo.c" "/Users/sglossu/Desktop/ppppl/philo_bonus/cmake-build-debug/CMakeFiles/philo.dir/srcs/philo.c.o"
-  "/Users/sglossu/Desktop/ppppl/philo_bonus/srcs/thread.c" "/Users/sglossu/Desktop/ppppl/philo_bonus/cmake-build-debug/CMakeFiles/philo.dir/srcs/thread.c.o"
-  "/Users/sglossu/Desktop/ppppl/philo_bonus/srcs/utils.c" "/Users/sglossu/Desktop/ppppl/philo_bonus/cmake-build-debug/CMakeFiles/philo.dir/srcs/utils.c.o"
-  "/Users/sglossu/Desktop/ppppl/philo_bonus/srcs/utils_death.c" "/Users/sglossu/Desktop/ppppl/philo_bonus/cmake-build-debug/CMakeFiles/philo.dir/srcs/utils_death.c.o"
-  "/Users/sglossu/Desktop/ppppl/philo_bonus/srcs/utils_write.c" "/Users/sglossu/Desktop/ppppl/philo_bonus/cmake-build-debug/CMakeFiles/philo.dir/srcs/utils_write.c.o"
-  "/Users/sglossu/Desktop/ppppl/philo_bonus/srcs/valid.c" "/Users/sglossu/Desktop/ppppl/philo_bonus/cmake-build-debug/CMakeFiles/philo.dir/srcs/valid.c.o"
+  "/Users/Alexandra/Desktop/philosophers/philo_bonus/srcs/actions.c" "/Users/Alexandra/Desktop/philosophers/philo_bonus/cmake-build-debug/CMakeFiles/philo.dir/srcs/actions.c.o"
+  "/Users/Alexandra/Desktop/philosophers/philo_bonus/srcs/ft_atoi.c" "/Users/Alexandra/Desktop/philosophers/philo_bonus/cmake-build-debug/CMakeFiles/philo.dir/srcs/ft_atoi.c.o"
+  "/Users/Alexandra/Desktop/philosophers/philo_bonus/srcs/init_struct.c" "/Users/Alexandra/Desktop/philosophers/philo_bonus/cmake-build-debug/CMakeFiles/philo.dir/srcs/init_struct.c.o"
+  "/Users/Alexandra/Desktop/philosophers/philo_bonus/srcs/philo.c" "/Users/Alexandra/Desktop/philosophers/philo_bonus/cmake-build-debug/CMakeFiles/philo.dir/srcs/philo.c.o"
+  "/Users/Alexandra/Desktop/philosophers/philo_bonus/srcs/thread.c" "/Users/Alexandra/Desktop/philosophers/philo_bonus/cmake-build-debug/CMakeFiles/philo.dir/srcs/thread.c.o"
+  "/Users/Alexandra/Desktop/philosophers/philo_bonus/srcs/utils.c" "/Users/Alexandra/Desktop/philosophers/philo_bonus/cmake-build-debug/CMakeFiles/philo.dir/srcs/utils.c.o"
+  "/Users/Alexandra/Desktop/philosophers/philo_bonus/srcs/utils_death.c" "/Users/Alexandra/Desktop/philosophers/philo_bonus/cmake-build-debug/CMakeFiles/philo.dir/srcs/utils_death.c.o"
+  "/Users/Alexandra/Desktop/philosophers/philo_bonus/srcs/utils_write.c" "/Users/Alexandra/Desktop/philosophers/philo_bonus/cmake-build-debug/CMakeFiles/philo.dir/srcs/utils_write.c.o"
+  "/Users/Alexandra/Desktop/philosophers/philo_bonus/srcs/valid.c" "/Users/Alexandra/Desktop/philosophers/philo_bonus/cmake-build-debug/CMakeFiles/philo.dir/srcs/valid.c.o"
   )
 set(CMAKE_C_COMPILER_ID "AppleClang")
 

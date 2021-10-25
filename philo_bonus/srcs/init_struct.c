@@ -14,12 +14,9 @@
 
 static	void	init_dop(t_data *all, int count)
 {
-	while (count++ <= all->nbs_phils)
-		pthread_mutex_init(&all->table[count], NULL);
 	count = 0;
 	while (count < all->nbs_phils)
 	{
-		all->philo[count].mutex = all->table;
 		all->philo[count].philo_id = count + 1;
 		all->philo[count].left_fork = count + 1;
 		if (all->philo[count].left_fork == all->nbs_phils)
@@ -39,11 +36,17 @@ static	void	init_dop(t_data *all, int count)
 	}
 }
 
-static void (t_data *all)
+static void init_forks(t_data *all)
 {
 	sem_unlink("forks");
 	sem_unlink("print");
-	all->forks = sem_open("forks", O_CREAT, S_IRWXU, all->nbs_phils);
+	all->philo->forks = sem_open("forks", O_CREAT, S_IRWXU, all->nbs_phils);
+	printf("%d\n", all->nbs_phils);
+	if (!all->philo->forks)
+		exit (-1);
+	all->philo->print = sem_open("forks", O_CREAT, S_IRWXU, 1);
+	if (!all->philo->print)
+		exit (-1);
 }
 
 int	init_struct(t_data *all, char **argv, int argc)

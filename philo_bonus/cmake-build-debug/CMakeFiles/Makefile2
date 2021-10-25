@@ -54,10 +54,10 @@ RM = /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/sglossu/Desktop/ppppl/philo_bonus
+CMAKE_SOURCE_DIR = /Users/Alexandra/Desktop/philosophers/philo_bonus
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/sglossu/Desktop/ppppl/philo_bonus/cmake-build-debug
+CMAKE_BINARY_DIR = /Users/Alexandra/Desktop/philosophers/philo_bonus/cmake-build-debug
 
 #=============================================================================
 # Directory level rules for the build root directory
@@ -81,14 +81,14 @@ clean: CMakeFiles/philo.dir/clean
 CMakeFiles/philo.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/philo.dir/build.make CMakeFiles/philo.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/philo.dir/build.make CMakeFiles/philo.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/sglossu/Desktop/ppppl/philo_bonus/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10 "Built target philo"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/Alexandra/Desktop/philosophers/philo_bonus/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10 "Built target philo"
 .PHONY : CMakeFiles/philo.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/philo.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/sglossu/Desktop/ppppl/philo_bonus/cmake-build-debug/CMakeFiles 10
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/Alexandra/Desktop/philosophers/philo_bonus/cmake-build-debug/CMakeFiles 10
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/philo.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/sglossu/Desktop/ppppl/philo_bonus/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/Alexandra/Desktop/philosophers/philo_bonus/cmake-build-debug/CMakeFiles 0
 .PHONY : CMakeFiles/philo.dir/rule
 
 # Convenience name for target.

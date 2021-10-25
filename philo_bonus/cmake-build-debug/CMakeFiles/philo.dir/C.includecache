@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/Alexandra/Desktop/philosophers/philo_bonus/srcs/actions.c
+philo.h
+/Users/Alexandra/Desktop/philosophers/philo_bonus/srcs/philo.h
+
+/Users/Alexandra/Desktop/philosophers/philo_bonus/srcs/thread.c
+philo.h
+/Users/Alexandra/Desktop/philosophers/philo_bonus/srcs/philo.h
+
+/Users/Alexandra/Desktop/philosophers/philo_bonus/srcs/utils.c
+philo.h
+/Users/Alexandra/Desktop/philosophers/philo_bonus/srcs/philo.h
+

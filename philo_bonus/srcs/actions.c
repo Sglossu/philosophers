@@ -14,17 +14,17 @@
 
 void	eating(t_thread *philo)
 {
-	pthread_mutex_lock(&philo->mutex[philo->left_fork]);
-	message("has taken a fork", *philo);
+	sem_wait(philo->forks);
+	message("has taken a left fork", philo);
 	if (philo->nbs_phils == 1)
 		philo->ph_die = true;
-	pthread_mutex_lock(&philo->mutex[philo->right_fork]);
-	message("has taken a fork", *philo);
+	sem_wait(philo->forks);
+	message("has taken a right fork", philo);
 	philo->time_start_eat = time_now();
-	message("is eating", *philo);
+	message("is eating", philo);
 	my_usleep(philo->t_eat);
-	pthread_mutex_unlock(&philo->mutex[philo->left_fork]);
-	pthread_mutex_unlock(&philo->mutex[philo->right_fork]);
+	sem_post(philo->forks);
+	sem_post(philo->forks);
 	philo->count_eating++;
 	if (philo->count_eating == philo->nbs_eating && philo->nbs_eating != 0)
 		philo->gorged = true;
@@ -32,11 +32,11 @@ void	eating(t_thread *philo)
 
 void	sleeping(t_thread *philo)
 {
-	message("is sleeping", *philo);
+	message("is sleeping", philo);
 	my_usleep(philo->t_sleep);
 }
 
 void	thinking(t_thread *philo)
 {
-	message("is thinking", *philo);
+	message("is thinking", philo);
 }
