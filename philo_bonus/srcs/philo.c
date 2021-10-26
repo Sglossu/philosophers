@@ -52,11 +52,7 @@ int	main(int argc, char **argv)
 //		ft_free(all);
 		return (-1);
 	}
-	if (!thread(all))
-	{
-//		ft_free(all);
-		return (-1);
-	}
+	thread(all);
 //	ft_free(all);
 	return (1);
 }

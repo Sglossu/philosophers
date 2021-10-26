@@ -6,15 +6,39 @@
 
 #IncludeRegexTransform: 
 
-/Users/Alexandra/Desktop/philosophers/philo_bonus/srcs/actions.c
+/Users/sglossu/Desktop/philosophers/philo_bonus/srcs/actions.c
 philo.h
-/Users/Alexandra/Desktop/philosophers/philo_bonus/srcs/philo.h
+/Users/sglossu/Desktop/philosophers/philo_bonus/srcs/philo.h
 
-/Users/Alexandra/Desktop/philosophers/philo_bonus/srcs/thread.c
+/Users/sglossu/Desktop/philosophers/philo_bonus/srcs/ft_atoi.c
 philo.h
-/Users/Alexandra/Desktop/philosophers/philo_bonus/srcs/philo.h
+/Users/sglossu/Desktop/philosophers/philo_bonus/srcs/philo.h
 
-/Users/Alexandra/Desktop/philosophers/philo_bonus/srcs/utils.c
+/Users/sglossu/Desktop/philosophers/philo_bonus/srcs/init_struct.c
 philo.h
-/Users/Alexandra/Desktop/philosophers/philo_bonus/srcs/philo.h
+/Users/sglossu/Desktop/philosophers/philo_bonus/srcs/philo.h
+
+/Users/sglossu/Desktop/philosophers/philo_bonus/srcs/philo.c
+philo.h
+/Users/sglossu/Desktop/philosophers/philo_bonus/srcs/philo.h
+
+/Users/sglossu/Desktop/philosophers/philo_bonus/srcs/thread.c
+philo.h
+/Users/sglossu/Desktop/philosophers/philo_bonus/srcs/philo.h
+
+/Users/sglossu/Desktop/philosophers/philo_bonus/srcs/utils.c
+philo.h
+/Users/sglossu/Desktop/philosophers/philo_bonus/srcs/philo.h
+
+/Users/sglossu/Desktop/philosophers/philo_bonus/srcs/utils_death.c
+philo.h
+/Users/sglossu/Desktop/philosophers/philo_bonus/srcs/philo.h
+
+/Users/sglossu/Desktop/philosophers/philo_bonus/srcs/utils_write.c
+philo.h
+/Users/sglossu/Desktop/philosophers/philo_bonus/srcs/philo.h
+
+/Users/sglossu/Desktop/philosophers/philo_bonus/srcs/valid.c
+philo.h
+/Users/sglossu/Desktop/philosophers/philo_bonus/srcs/philo.h
 

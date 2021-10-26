@@ -12,37 +12,6 @@
 
 #include "philo.h"
 
-void	*death(void *philo_m)
-{
-	t_thread	**philo;
-	int			count;
-	long		life_time;
-	int			count_gorged_philo;
-
-	count = 0;
-	count_gorged_philo = 0;
-	philo = philo_m;
-	while (1)
-	{
-		life_time = life_of_time(philo, count);
-		count_gorged_philo = count_gorged(philo, count, count_gorged_philo);
-		if ((count_gorged_philo == (*philo)[count].nbs_phils && \
-		(*philo)[count].nbs_eating != 0))
-		{
-//			pthread_mutex_lock((*philo)->mutex + (**philo).nbs_phils);
-//			return (NULL);
-			exit (1);
-		}
-		if (life_time > (long)(*philo)[count].t_die || (*philo)[count].ph_die)
-		{
-			message("died", *philo);
-//			return (NULL);
-			exit (1);
-		}
-		count = countings(count, philo);
-	}
-}
-
 void	*func(void *philo_m)
 {
 	t_thread	*philo;
@@ -60,30 +29,50 @@ void	*func(void *philo_m)
 	}
 }
 
-int	thread(t_data *all)
+void	child(t_data *all, int count)
 {
-	int	count;
+	long		life_time;
+
+	all->philo[count].time_start_thread = time_now();
+	all->philo[count].time_start_program = all->time_start_program;
+	pthread_create(&all->philo[count].t, NULL, func, &all->philo[count]);
+	while (1)
+	{
+		life_time = life_of_time(&all->philo[count], count);
+		count_gorged(all, count);
+		if ((all->count_gorged_philo == all->nbs_phils && \
+		all->nbs_eating != 0))
+		{
+			sem_wait(all->philo[count].print);
+			exit (1);
+		}
+		if (life_time > (long)all->t_die || all->philo[count].ph_die)
+		{
+			message("died", &all->philo[count]);
+			exit (1);
+		}
+	}
+}
+
+void    thread(t_data *all)
+{
+	int count;
 
 	count = 0;
 	all->time_start_program = time_now();
 	while (count < all->nbs_phils)
 	{
-		all->philo[count].time_start_thread = time_now();
-		all->philo[count].time_start_program = all->time_start_program;
-		pthread_create(&all->philo[count].t, NULL, func, &all->philo[count]);
-		count += 2;
-		usleep(50);
+		all->philo[count].pid = fork();
+		usleep(500);
+		if (all->philo[count].pid == 0)
+			child(all, count);
+		count++;
 	}
-	count = 1;
+	waitpid(-1, NULL, 0);
+	count = 0;
 	while (count < all->nbs_phils)
 	{
-		all->philo[count].time_start_thread = time_now();
-		all->philo[count].time_start_program = all->time_start_program;
-		pthread_create(&all->philo[count].t, NULL, func, &all->philo[count]);
-		count += 2;
-		usleep(50);
+		kill(all->philo[count].pid, SIGKILL);
+		count++;
 	}
-	pthread_create(&all->philo[all->nbs_phils].t, NULL, death, &all->philo);
-	pthread_join(all->philo[all->nbs_phils].t, NULL);
-	return (1);
 }
