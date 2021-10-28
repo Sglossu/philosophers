@@ -33,6 +33,10 @@ static	void	init_dop(t_data *all, int count)
 		all->philo[count].ph_die = false;
 		all->philo[count].time_start_program = all->time_start_program;
 		all->philo[count].time_start_eat = 0;
+		all->philo[count].forks = all->forks;
+		all->philo[count].print = all->print;
+//		printf("count %d, pointer forks %p\n", count, all->forks);
+//		printf("count %d, pointer print %p\n", count, all->print);
 		count++;
 	}
 }
@@ -41,11 +45,11 @@ static void init_forks(t_data *all)
 {
 	sem_unlink("forks");
 	sem_unlink("print");
-	all->philo->forks = sem_open("forks", O_CREAT, S_IRWXU, all->nbs_phils);
-	if (!all->philo->forks)
+	all->forks = sem_open("forks", O_CREAT, S_IRWXU, all->nbs_phils);
+	if (!all->forks)
 		exit (-1);
-	all->philo->print = sem_open("forks", O_CREAT, S_IRWXU, 1);
-	if (!all->philo->print)
+	all->print = sem_open("forks", O_CREAT, S_IRWXU, 1);
+	if (!all->print)
 		exit (-1);
 }
 

@@ -53,7 +53,8 @@ typedef	struct s_data
 	int         	t_sleep;
 	int				nbs_eating;
 	long 			time_start_program;
-
+	sem_t           *forks;
+	sem_t			*print;
 	t_thread    	*philo;
 	int             count_gorged_philo;
 }				t_data;

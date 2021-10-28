@@ -17,6 +17,7 @@ void	*func(void *philo_m)
 	t_thread	*philo;
 	long		life_time;
 
+
 	philo = philo_m;
 	while (1)
 	{
@@ -66,7 +67,16 @@ void    thread(t_data *all)
 		usleep(500);
 		if (all->philo[count].pid == 0)
 			child(all, count);
-		count++;
+		count += 2;
+	}
+	count = 1;
+	while (count < all->nbs_phils)
+	{
+		all->philo[count].pid = fork();
+		usleep(500);
+		if (all->philo[count].pid == 0)
+			child(all, count);
+		count += 2;
 	}
 	waitpid(-1, NULL, 0);
 	count = 0;
