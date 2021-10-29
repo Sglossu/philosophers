@@ -18,10 +18,6 @@ static	void	init_dop(t_data *all, int count)
 	while (count < all->nbs_phils)
 	{
 		all->philo[count].philo_id = count + 1;
-		all->philo[count].left_fork = count + 1;
-		if (all->philo[count].left_fork == all->nbs_phils)
-			all->philo[count].left_fork = 0;
-		all->philo[count].right_fork = count;
 		all->philo[count].t_die = all->t_die;
 		all->philo[count].t_eat = all->t_eat;
 		all->philo[count].t_sleep = all->t_sleep;
@@ -48,7 +44,7 @@ static void init_forks(t_data *all)
 	all->forks = sem_open("forks", O_CREAT, S_IRWXU, all->nbs_phils);
 	if (!all->forks)
 		exit (-1);
-	all->print = sem_open("forks", O_CREAT, S_IRWXU, 1);
+	all->print = sem_open("print", O_CREAT, S_IRWXU, 1);
 	if (!all->print)
 		exit (-1);
 }

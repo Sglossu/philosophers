@@ -27,8 +27,6 @@ typedef struct s_thread
 {
     pthread_t		t;
     int				philo_id;
-    int				left_fork;
-    int				right_fork;
     int				t_die;
     int				t_eat;
     int				t_sleep;
