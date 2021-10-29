@@ -25,8 +25,10 @@ void	*func(void *philo_m)
 		sleeping(philo);
 		thinking(philo);
 		life_time = time_now() - philo->time_start_eat;
-		if (life_time > (long)philo->t_die)
-			return (NULL);
+		if (life_time > (long)philo->t_die) {
+			message("died", philo);
+			exit (-1);
+		}
 	}
 }
 
@@ -40,11 +42,10 @@ void	child(t_data *all, int count)
 	while (1)
 	{
 		life_time = life_of_time(&all->philo[count], count);
-		count_gorged(all, count);
-		if ((all->count_gorged_philo == all->nbs_phils && \
+		if ((all->philo[count].count_eating == all->nbs_eating && \
 		all->nbs_eating != 0))
 		{
-			sem_wait(all->print);
+			usleep(50);
 			exit (1);
 		}
 		if (life_time > (long)all->t_die || all->philo[count].ph_die)
@@ -66,19 +67,19 @@ void    thread(t_data *all)
 		all->philo[count].pid = fork();
 		usleep(500);
 		if (all->philo[count].pid == 0)
+		{
 			child(all, count);
+			exit(1);
+		}
 		count++;
 	}
-//	count = 1;
-//	while (count < all->nbs_phils)
-//	{
-//		all->philo[count].pid = fork();
-//		usleep(500);
-//		if (all->philo[count].pid == 0)
-//			child(all, count);
-//		count += 2;
-//	}
-	waitpid(-1, NULL, 0);
+	count = 0;
+//	waitpid(-1, NULL, 0);
+	while (count < all->nbs_phils)
+	{
+		waitpid(-1, NULL, 0);
+		count++;
+	}
 	count = 0;
 	while (count < all->nbs_phils)
 	{

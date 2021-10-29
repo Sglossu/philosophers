@@ -25,14 +25,11 @@ static	void	init_dop(t_data *all, int count)
 		all->philo[count].time_start_eat = 0;
 		all->philo[count].nbs_eating = all->nbs_eating;
 		all->philo[count].count_eating = 0;
-		all->philo[count].gorged = false;
 		all->philo[count].ph_die = false;
 		all->philo[count].time_start_program = all->time_start_program;
 		all->philo[count].time_start_eat = 0;
 		all->philo[count].forks = all->forks;
 		all->philo[count].print = all->print;
-//		printf("count %d, pointer forks %p\n", count, all->forks);
-//		printf("count %d, pointer print %p\n", count, all->print);
 		count++;
 	}
 }

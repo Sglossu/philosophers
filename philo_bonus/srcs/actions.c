@@ -26,8 +26,6 @@ void	eating(t_thread *philo)
 	sem_post(philo->forks);
 	sem_post(philo->forks);
 	philo->count_eating++;
-	if (philo->count_eating == philo->nbs_eating && philo->nbs_eating != 0)
-		philo->gorged = true;
 }
 
 void	sleeping(t_thread *philo)

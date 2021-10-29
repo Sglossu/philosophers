@@ -26,12 +26,3 @@ long	life_of_time(t_thread *philo, int count)
 	}
 	return (life_time);
 }
-
-void	count_gorged(t_data *all, int count)
-{
-	if (all->philo[count].gorged)
-	{
-		all->philo[count].gorged = false;
-		all->count_gorged_philo++;
-	}
-}
