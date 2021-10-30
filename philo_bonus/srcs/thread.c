@@ -17,7 +17,6 @@ void	*func(void *philo_m)
 	t_thread	*philo;
 	long		life_time;
 
-
 	philo = philo_m;
 	while (1)
 	{
@@ -25,7 +24,8 @@ void	*func(void *philo_m)
 		sleeping(philo);
 		thinking(philo);
 		life_time = time_now() - philo->time_start_eat;
-		if (life_time > (long)philo->t_die) {
+		if (life_time > (long)philo->t_die)
+		{
 			message("died", philo);
 			exit (-1);
 		}
@@ -42,7 +42,7 @@ void	child(t_data *all, int count)
 	while (1)
 	{
 		life_time = life_of_time(&all->philo[count], count);
-		if ((all->philo[count].count_eating == all->nbs_eating && \
+		if ((all->philo[count].count_eating == all->nbs_eating + 2 && \
 		all->nbs_eating != 0))
 		{
 			usleep(50);
@@ -56,16 +56,16 @@ void	child(t_data *all, int count)
 	}
 }
 
-void    thread(t_data *all)
+void	thread(t_data *all)
 {
-	int count;
+	int	count;
 
 	count = 0;
 	all->time_start_program = time_now();
 	while (count < all->nbs_phils)
 	{
 		all->philo[count].pid = fork();
-		usleep(500);
+		usleep(50);
 		if (all->philo[count].pid == 0)
 		{
 			child(all, count);
@@ -74,12 +74,7 @@ void    thread(t_data *all)
 		count++;
 	}
 	count = 0;
-//	waitpid(-1, NULL, 0);
-	while (count < all->nbs_phils)
-	{
-		waitpid(-1, NULL, 0);
-		count++;
-	}
+	waitpid(0, NULL, 0);
 	count = 0;
 	while (count < all->nbs_phils)
 	{

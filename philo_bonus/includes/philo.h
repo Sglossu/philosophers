@@ -44,6 +44,7 @@ typedef struct s_thread
 
 typedef	struct s_data
 {
+
 	int         	nbs_phils;
 	int         	t_die;
 	int         	t_eat;
@@ -53,7 +54,6 @@ typedef	struct s_data
 	sem_t           *forks;
 	sem_t			*print;
 	t_thread    	*philo;
-	int             count_gorged_philo;
 }				t_data;
 
 int		valid_arguments(int argc, char **argv, t_data *ph);
@@ -65,15 +65,12 @@ void 	eating(t_thread *philo);
 void	sleeping(t_thread *philo);
 void	thinking(t_thread *philo);
 void	ft_putstr(char *s);
-//void	*death_func(void *philo_m);
 void	my_usleep(long time);
 void	message(char *str, t_thread *philo);
-void 	count_gorged(t_data *all, int count);
 long	life_of_time(t_thread *philo, int count);
 void	ft_putnbr_long(long n);
 void 	ft_putchar(char c);
 void	ft_putstr(char *s);
 
-//void    main_thread(t_data *all);
 
 #endif 

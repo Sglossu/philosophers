@@ -14,14 +14,15 @@
 
 long	life_of_time(t_thread *philo, int count)
 {
-	(void)count;
 	long	life_time;
 
 	life_time = 0;
-	if (philo->time_start_eat) {
+	if (philo->time_start_eat)
+	{
 		life_time = time_now() - philo->time_start_eat;
 	}
-	else {
+	else
+	{
 		life_time = time_now() - philo->time_start_thread;
 	}
 	return (life_time);

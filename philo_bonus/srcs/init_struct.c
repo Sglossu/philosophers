@@ -34,7 +34,7 @@ static	void	init_dop(t_data *all, int count)
 	}
 }
 
-static void init_forks(t_data *all)
+static	void	init_forks(t_data *all)
 {
 	sem_unlink("forks");
 	sem_unlink("print");
@@ -46,14 +46,13 @@ static void init_forks(t_data *all)
 		exit (-1);
 }
 
-int	init_struct(t_data *all, char **argv, int  argc)
+int	init_struct(t_data *all, char **argv, int argc)
 {
 	all->nbs_phils = ft_atoi(argv[1]);
 	all->t_die = ft_atoi(argv[2]);
 	all->t_eat = ft_atoi(argv[3]);
 	all->t_sleep = ft_atoi(argv[4]);
 	all->time_start_program = 0;
-	all->count_gorged_philo = 0;
 	if (argc == 5)
 		all->nbs_eating = 0;
 	else
