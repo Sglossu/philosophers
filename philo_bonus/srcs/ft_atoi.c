@@ -6,11 +6,11 @@
 /*   By: sglossu <sglossu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/05 19:27:08 by sglossu           #+#    #+#             */
-/*   Updated: 2021/10/08 23:15:37 by sglossu          ###   ########.fr       */
+/*   Updated: 2021/10/31 03:05:47 by sglossu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
+#include "philo_bonus.h"
 
 static int	number(char *str, int i, long int nb, int minus)
 {

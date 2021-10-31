@@ -6,11 +6,11 @@
 /*   By: sglossu <sglossu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/09 20:22:58 by sglossu           #+#    #+#             */
-/*   Updated: 2021/10/08 23:15:17 by sglossu          ###   ########.fr       */
+/*   Updated: 2021/10/31 03:05:55 by sglossu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
+#include "philo_bonus.h"
 
 void	*func(void *philo_m)
 {
@@ -41,7 +41,7 @@ void	child(t_data *all, int count)
 	pthread_create(&all->philo[count].t, NULL, func, &all->philo[count]);
 	while (1)
 	{
-		life_time = life_of_time(&all->philo[count], count);
+		life_time = life_of_time(&all->philo[count]);
 		if ((all->philo[count].count_eating == all->nbs_eating + 2 && \
 		all->nbs_eating != 0))
 		{

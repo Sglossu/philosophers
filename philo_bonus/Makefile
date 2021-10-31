@@ -1,4 +1,4 @@
-NAME			=	philo
+NAME			=	philo_bonus
 DIR_HEAD		=	includes
 CC				=	gcc
 CFLAGS			=	-Wall -Werror -Wextra
@@ -11,7 +11,7 @@ SRCS			=	$(DIR_SRCS)philo.c			$(DIR_SRCS)valid.c			$(DIR_SRCS)ft_atoi.c \
 
 OBJS			=	$(SRCS:.c=.o)
 
-HEAD			=	$(DIR_HEAD)/philo.h
+HEAD			=	$(DIR_HEAD)/philo_bonus.h
 
 .PHONY			:	all clean fclean re bonus
 

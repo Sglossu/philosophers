@@ -6,7 +6,7 @@
 /*   By: sglossu <sglossu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/09 17:14:11 by sglossu           #+#    #+#             */
-/*   Updated: 2021/10/08 23:15:42 by sglossu          ###   ########.fr       */
+/*   Updated: 2021/10/31 03:12:18 by sglossu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	ft_free(t_data *all)
 	int	count;
 
 	count = 0;
-	while (count < all->nbs_phils + 1)
+	while (count < all->nbs_phils)
 	{
 		if (pthread_mutex_destroy(all->table + count))
 			return (-1);

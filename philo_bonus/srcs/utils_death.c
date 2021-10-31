@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   utils_death.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sglossu <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: sglossu <sglossu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 20:54:50 by sglossu           #+#    #+#             */
-/*   Updated: 2021/10/14 20:54:52 by sglossu          ###   ########.fr       */
+/*   Updated: 2021/10/31 03:05:57 by sglossu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
+#include "philo_bonus.h"
 
-long	life_of_time(t_thread *philo, int count)
+long	life_of_time(t_thread *philo)
 {
 	long	life_time;
 

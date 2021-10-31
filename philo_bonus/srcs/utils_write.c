@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   utils_write.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sglossu <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: sglossu <sglossu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 21:36:32 by sglossu           #+#    #+#             */
-/*   Updated: 2021/10/14 21:36:34 by sglossu          ###   ########.fr       */
+/*   Updated: 2021/10/31 03:05:59 by sglossu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
+#include "philo_bonus.h"
 
 void	ft_putnbr_long(long n)
 {

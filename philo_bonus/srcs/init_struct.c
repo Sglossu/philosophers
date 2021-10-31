@@ -6,11 +6,11 @@
 /*   By: sglossu <sglossu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/09 18:28:30 by sglossu           #+#    #+#             */
-/*   Updated: 2021/10/08 23:14:46 by sglossu          ###   ########.fr       */
+/*   Updated: 2021/10/31 03:05:49 by sglossu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
+#include "philo_bonus.h"
 
 static	void	init_dop(t_data *all, int count)
 {

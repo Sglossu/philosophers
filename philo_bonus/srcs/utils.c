@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sglossu <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: sglossu <sglossu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/08 23:15:23 by sglossu           #+#    #+#             */
-/*   Updated: 2021/10/08 23:15:25 by sglossu          ###   ########.fr       */
+/*   Updated: 2021/10/31 03:06:03 by sglossu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
+#include "philo_bonus.h"
 
 long	time_now(void)
 {
